@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import Fan from "./components/Fan";
-import FansList from "./components/FansList";
+import Char from "./components/Char";
+import CharsList from "./components/CharsList";
 
 const App: React.FC = () => {
   return (
     <div>
       <div className="container mt-3">
         <Routes>
-          <Route path="/" element={<FansList />} />
-            <Route path=":id" element={<Fan />} />
+          <Route path="/" element={<CharsList />} />
+            <Route path=":id" element={<Char />} />
           <Route
             path="*"
             element={

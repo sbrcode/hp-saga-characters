@@ -1,27 +1,11 @@
 import _ from 'lodash';
-import React, { useState, useEffect } from "react";
-import FanService from "../services/FanService";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import FanData from '../types/FanType';
+import CharContext from '../contexts/CharContext';
 
-const FansList: React.FC = () => {
-  const [fans, setFans] = useState<Array<FanData>>([]);
+const CharsList: React.FC = () => {
   const [searchName, setSearchName] = useState<string>('');
-
-  useEffect(() => {
-    retrieveTutorials();
-  }, []);
-
-  const retrieveTutorials = () => {
-    FanService.getAll()
-      .then((response: any) => {
-        setFans(response.data);
-        // console.log(response.data);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  };
+  const { fans } = useContext(CharContext as never)
 
   const filteredCharacters = _.filter(fans, (item) => {
     return item.name.toLowerCase().indexOf(searchName.toLowerCase()) > -1
@@ -57,4 +41,4 @@ const FansList: React.FC = () => {
   );
 };
 
-export default FansList;
+export default CharsList;
