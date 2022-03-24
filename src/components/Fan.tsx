@@ -1,45 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-
 import FanService from "../services/FanService";
 import FanData from "../types/FanType";
 
 const Fan: React.FC = () => {
-  const { id }= useParams();
-  console.log('==useParams==>', id)
-  const initialFanState = {
-    id: "",
-    name: "",
-    species: "",
-    gender: "",
-    wizard: false,
-    ancestry: "",
-    hairColour: "",
-    hogwartsStudent: false,
-    hogwartsStaff: false,
-    alive: false,
-  };
-  const [currentFan, setCurrentFan] = useState<FanData>(initialFanState);
+  const params = useParams();
 
-  const getFan = (id: string) => {
-    FanService.get(id)
-      .then((response: any) => {
-        setCurrentFan(response.data);
-        console.log('==DATA==>', response.data);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  };
+  // const initialFanState = {
+  //   name: "",
+  //   species: "",
+  //   gender: "",
+  //   wizard: false,
+  //   ancestry: "",
+  //   hairColour: "",
+  //   hogwartsStudent: false,
+  //   hogwartsStaff: false,
+  //   alive: false,
+  // };
+  // const [currentFan, setCurrentFan] = useState<FanData>(initialFanState);
 
-  useEffect(() => {
-    if (id)
-      getFan(id);
-  }, [id]);
+  // const getFan = (id: any) => {
+  //   FanService.get(id)
+  //     .then((response: any) => {
+  //       setCurrentFan(response.data);
+  //       console.log('==DATA==>', response.data);
+  //     })
+  //     .catch((e: Error) => {
+  //       console.log(e);
+  //     });
+  // };
+
+  // const getChar = (id: string) => {
+  //   return fans.find(
+  //     (fan: FanData) => fan.name === id
+  //   );
+  // }
+
+  // useEffect(() => {
+  //   if (params)
+  //     getFan(params.id);
+  // }, [params]);
 
   return (
     <div>
-      <p>{currentFan.ancestry}</p>
+      <p>Coucou: {params.id}</p>
     </div>
   );
 };

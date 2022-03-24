@@ -1,5 +1,4 @@
 export default interface FanData {
-  id: string,
   name: string,
   species?: string,
   gender?: string,

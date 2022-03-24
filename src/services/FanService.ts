@@ -5,7 +5,7 @@ const getAll = () => {
   return http.get<Array<FanData>>("/");
 };
 
-const get = (id: any) => {
+const get = (id: string) => {
   return http.get<FanData>(`/${id}`);
 };
 

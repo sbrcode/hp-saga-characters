@@ -6,7 +6,6 @@ import FanData from '../types/FanType';
 
 const FansList: React.FC = () => {
   const [fans, setFans] = useState<Array<FanData>>([]);
-  const [currentFan, setCurrentFan] = useState<FanData | null>(null);
   const [searchName, setSearchName] = useState<string>('');
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const FansList: React.FC = () => {
     FanService.getAll()
       .then((response: any) => {
         setFans(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((e: Error) => {
         console.log(e);
@@ -26,7 +25,7 @@ const FansList: React.FC = () => {
 
   const filteredCharacters = _.filter(fans, (item) => {
     return item.name.toLowerCase().indexOf(searchName.toLowerCase()) > -1
- })
+  })
 
   return (
     <div className="list row">
@@ -46,17 +45,8 @@ const FansList: React.FC = () => {
           <ul className="list-group">
             {filteredCharacters &&
               filteredCharacters.map((fan, index) => (
-                <li
-                  // className={
-                  //   "list-group-item " + (index === currentIndex ? "active" : "")
-                  // }
-                    onClick={() => setCurrentFan(fan)}
-                    key={index}
-                  >
-                  <Link
-                    to={"/" + currentFan?.id}
-                    // className="badge badge-warning"
-                  >
+                <li key={index} >
+                  <Link to={`/${fan.name}`} >
                     {fan.name}
                   </Link>
                 </li>
