@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import CharContext from '../contexts/CharContext';
+import { Title, Input, StyledDiv } from '../themes/Styles'
 
 const CharsList: React.FC = () => {
   const [searchName, setSearchName] = useState<string>('');
@@ -12,32 +13,25 @@ const CharsList: React.FC = () => {
   })
 
   return (
-    <div className="list row">
-      <div className="col-md-8">
-        <div className="input-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by name"
-            value={searchName}
-            onChange={(e) => setSearchName(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="col-md-6">
-        <h4>Characters List</h4>
-          <ul className="list-group">
-            {filteredCharacters &&
-              filteredCharacters.map((fan, index) => (
-                <li key={index} >
-                  <Link to={`/${fan.name}`} >
-                    {fan.name}
-                  </Link>
-                </li>
-              ))}
-          </ul>
-      </div>
-    </div>
+    <StyledDiv>
+      <Input
+        size="1.2em"
+        placeholder="Search by name"
+        value={searchName}
+        onChange={(e: { target: { value: any; }; }) => setSearchName(e.target.value)}
+      />
+      <Title>Harry Potter Saga Characters List</Title>
+        <ul className="list-group">
+          {filteredCharacters &&
+            filteredCharacters.map((fan, index) => (
+              <li key={index} >
+                <Link to={`/${fan.name}`} >
+                  {fan.name}
+                </Link>
+              </li>
+            ))}
+        </ul>
+    </StyledDiv>
   );
 };
 
