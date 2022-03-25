@@ -1,17 +1,26 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Title = styled.h2`
+/**
+    brown = #781b2b
+    violet = #241e4e
+    gold = #f5a549
+    green = #2e382e
+    black = #0d1f22
+ */
+
+export const StyledTitle = styled.h2`
   font-size: 1.5em;
-  color: #h241e4e;
-  text-align: ;
+  color: #f5a549;
+  text-align: justify;
 `;
 
-export const Input = styled.input.attrs(props => ({
+export const StyledInput = styled.input.attrs(props => ({
   type: "text",
   size: props.size || "1em",
 }))`
   color: #781b2b;
-  font-size: 1.2em;
+  font-size: 1em;
   border: 2px solid #h241e4e;
   border-radius: 3px;
 
@@ -20,27 +29,11 @@ export const Input = styled.input.attrs(props => ({
   padding: ${props => props.size};
 `;
 
-export const StyledDiv = styled.div`
-  background-color: #f5a549
+export const StyledLink = styled(Link)`
+  color: #f5a549;
+  font-size: 1em;
 `;
-// const Link = ({ className, children }) => (
-//   <a className={className}>
-//     {children}
-//   </a>
-// );
 
-// const StyledLink = styled(Link)`
-//   color: palevioletred;
-//   font-weight: bold;
-// `;
-// Create a <Wrapper> react component that renders a <section> with
-// some padding and a papayawhip background
-// const Wrapper = styled.section`
-//   padding: 4em;
-//   background: papayawhip;
-// `;
-
-// Use them like any other React component – except they're styled!
-// <Wrapper>
-//   <Title>Hello World, this is my first styled component!</Title>
-// </Wrapper>
+export const StyledDiv = styled.div`
+  background-color: #241e4e;
+`;
