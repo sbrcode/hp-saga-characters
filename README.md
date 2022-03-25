@@ -15,4 +15,3 @@ https://cors-anywhere.herokuapp.com/corsdemo
 ## Run project
 
 ### `yarn start`
-
