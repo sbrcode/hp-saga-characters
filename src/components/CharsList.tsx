@@ -16,7 +16,7 @@ const CharsList: React.FC = () => {
       <StyledTitle>Harry Potter Saga Characters List</StyledTitle>
       <StyledInput
         size="1em"
-        placeholder="Lookin' for someone ?"
+        placeholder="Lookin' for ..?"
         value={searchName}
         onChange={(e: { target: { value: any; }; }) => setSearchName(e.target.value)}
       />
