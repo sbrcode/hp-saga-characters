@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, { useState, useContext } from "react";
 import CharContext from '../contexts/CharContext';
-import { StyledTitle, StyledInput, StyledDiv, StyledLink } from '../themes/Styles'
+import { StyledTitle, StyledInput, StyledLink } from '../themes/Styles'
 
 const CharsList: React.FC = () => {
   const [searchName, setSearchName] = useState<string>('');
@@ -12,14 +12,14 @@ const CharsList: React.FC = () => {
   })
 
   return (
-    <StyledDiv>
+    <div>
+      <StyledTitle>Harry Potter Saga Characters List</StyledTitle>
       <StyledInput
-        size="1.2em"
-        placeholder="Search by name"
+        size="1em"
+        placeholder="Lookin' for someone ?"
         value={searchName}
         onChange={(e: { target: { value: any; }; }) => setSearchName(e.target.value)}
       />
-      <StyledTitle>Harry Potter Saga Characters List</StyledTitle>
         <ul className="list-group">
           {filteredCharacters &&
             filteredCharacters.map((fan, index) => (
@@ -30,7 +30,7 @@ const CharsList: React.FC = () => {
               </li>
             ))}
         </ul>
-    </StyledDiv>
+    </div>
   );
 };
 

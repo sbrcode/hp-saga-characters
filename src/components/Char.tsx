@@ -11,11 +11,12 @@ const Char: React.FC = () => {
   if (fans && fans.length > 0) {
     const {
       name, alternate_names, species, gender, house, dateOfBirth, wizard, ancestry, hairColour,
-      hogwartsStudent, hogwartsStaff, alive, // wand, image
+      hogwartsStudent, hogwartsStaff, alive, image // wand, 
     } = getChar(params.id);
 
     return (
       <div>
+        <img className="Avatar" src={image} height={225} alt={`< ${name} >`} />
         <h2>{name}</h2>
         <p>{alternate_names}</p>
         <p>{species}</p>
